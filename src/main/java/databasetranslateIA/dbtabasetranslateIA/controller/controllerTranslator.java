@@ -20,11 +20,12 @@ public class controllerTranslator {
 	
 	@PostMapping("/translate")
 	public String translateCode(@RequestBody InputLanguage inputLanguage) {
+		System.out.println("req");
 		String code = inputLanguage.getCode();
 		String to = inputLanguage.getLanguage_to();
 		String from = inputLanguage.getLanguage_from();
         String translationResult = chatBot.translate(code,to,from);
-        
+        System.out.println(translationResult);
         return translationResult;
 	}
 	
